@@ -1,0 +1,35 @@
+[versions]
+kotlin = "1.8.21"
+coroutines = "1.7.3"
+kotlinResult = "1.1.14"
+detekt = "1.23.0"
+git_properties_plugin = "2.4.1"
+
+plugin_convention = "0.1"
+[libraries]
+kotlinResult = { module = "com.michael-bull.kotlin-result:kotlin-result", version.ref = "kotlinResult" }
+kotlinResult_coroutines = { module = "com.michael-bull.kotlin-result:kotlin-result-coroutines", version.ref = "kotlinResult" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+
+
+##########################
+# Used in build-logic
+##########################
+detekt_cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = "detekt" }
+detekt_gradlePlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+dependencyAnalysis_gradlePlugin = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version = "1.20.0" }
+doctor_gradlePlugin = { module = "com.osacky.doctor:doctor-plugin", version = "0.8.1" }
+kotlin_gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+ktfmt_gradlePlugin = { module = "com.ncorti.ktfmt.gradle:plugin", version = "0.12.0" }
+
+[plugins]
+git_properties = { id = "com.gorylenko.gradle-git-properties", version.ref = "git_properties_plugin" }
+kotlin_jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
+#####################
+# Convention plugins from build-logic
+#####################
+convention_root = { id = "com.omricat.gradle.convention.root", version.ref = "plugin_convention" }
+convention_kotlin_jvm = { id = "com.omricat.gradle.convention.kotlin.jvm", version.ref = "plugin_convention" }
